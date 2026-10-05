@@ -21,3 +21,9 @@ Am împărțit procesul de configurare în trei module principale:
 
 ---
 *Proiect creat pentru a salva timp la reinstalări și pentru a păstra un istoric curat al modificărilor de sistem.*
+
+Pentru a rula acest script pe o mașină nouă, trebuie doar să îi dai permisiuni de execuție și să îl pornești:
+
+```bash
+chmod +x install.sh
+./install.sh
