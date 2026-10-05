@@ -71,11 +71,26 @@ Se adaugă următoarele linii la finalul fișierului ~/.bashrc:
 fastfetch
 eval "$(starship init bash)"
 
-# Alias-uri
-alias ls="eza --icons --group-directories-first"
-alias ll="eza -la --icons --octal-permissions --group-directories-first"
-alias tree="eza --tree --icons"
-alias update='sudo apt update && sudo apt upgrade -y'
-alias top='btop'
-alias cls='clear'
-alias ..='cd ..'
+# Manevrarea fișierelor și navigare
+alias ls='fastfetch'              # Sau folosește 'eza' dacă îl instalezi pentru un ls modern cu iconițe
+alias ll='ls -la'                 # Afișează toate fișierele (inclusiv cele ascunse) în format listă
+alias ..='cd ..'                  # Urcă un director mai sus
+alias ...='cd ../..'              # Urcă două directoare mai sus
+alias cls='clear'                 # Curăță ecranul rapid
+
+# Sistem și Actualizări
+alias update='sudo apt update && sudo apt upgrade -y' # Actualizează tot sistemul cu o singură comandă
+alias clean='sudo apt autoremove -y && sudo apt clean' # Șterge pachetele inutile și memoria cache
+alias sysinfo='fastfetch'         # Afișează specificațiile laptopului
+alias top='btop'                  # Deschide btop în loc de top-ul clasic
+
+# Git (dacă lucrezi în terminal)
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'alias ls="eza --icons --group-directories-first"
+alias ls="eza --icons=always --group-directories-first"
+alias ll="eza -la --icons=always --octal-permissions --group-directories-first"
+alias tree="eza --tree --icons=always"
+
+export EZA_COLORS="da=36:sn=32:sb=32:ur=38;5;244:uw=38;5;244:ux=38;5;208:uu=38;5;240:gu=38;5;240"
