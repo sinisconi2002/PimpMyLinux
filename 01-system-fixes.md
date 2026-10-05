@@ -10,6 +10,22 @@ Driverul NVIDIA corupe adesea memoria video la intrarea în repaus. Soluția est
 sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
+```
 
 # Adăugarea parametrului de kernel pentru păstrarea alocărilor VRAM
+```bash
 sudo kernelstub -a "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+```
+## Fix: Blocaj la Boot (necesită apăsarea tastei Space)
+Tranziția dintre animația de boot și GDM (managerul de logare) agăța procesul de pornire.
+
+```bash
+# 1. Forțarea inițializării driverului grafic la nivel de kernel (DRM modeset)
+sudo kernelstub -a "nvidia-drm.modeset=1"
+
+# 2. Ștergerea animației de boot pentru o tranziție curată către interfață
+sudo kernelstub -d "splash"
+
+# 3. Adăugarea unui delay de 2 secunde la boot
+# Se adaugă linia "timeout 2" în fișierul de configurare a bootloader-ului:
+sudo nano /boot/efi/loader/loader.conf
