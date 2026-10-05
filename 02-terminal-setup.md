@@ -2,6 +2,36 @@
 
 Configurația care transformă terminalul default într-unul ultra-rapid, cu suport pentru iconițe, culori, syntax highlighting și grafice detaliate.
 
+
+## 🔤 Prerechizit: Instalarea fontului Nerd Font (Esențial pentru iconițe)
+
+Pentru ca utilitarele precum `eza` și `Starship` să afișeze corect iconițele și să nu apară pătrățele (*tofu*), sistemul are nevoie de un font cu glife extinse.
+
+### 1. Instalare automată din terminal
+Rulează următoarele comenzi pentru a descărca și înregistra **JetBrainsMono Nerd Font** în sistem:
+
+```bash
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+curl -fLO [https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz)
+tar -xf JetBrainsMono.tar.xz
+rm JetBrainsMono.tar.xz
+fc-cache -f -v
+```
+
+2. Activare în GNOME Terminal (Pop!_OS)
+După instalare, fontul trebuie selectat manual în interfața terminalului:
+
+Deschide terminalul și apasă pe butonul de Meniu (trei linii / hamburger) din dreapta sus -> Preferences.
+
+În panoul din stânga, dă clic pe profilul tău activ.
+
+Bifează căsuța Custom font.
+
+Apasă pe caseta fontului, caută și selectează JetBrainsMono Nerd Font, apoi apasă Select.
+
+
+
 ## 📦 Utilitare instalate
 * **Starship** - Prompt minimalist, ultra-rapid (Rust).
 * **Fastfetch** - Afișează logo-ul OS și specificațiile sistemului (C).
